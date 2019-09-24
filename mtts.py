@@ -27,11 +27,16 @@ def getToken():
 
 
 
-def GetTTS(male="female", text="Hello"):
+def GetTTS(male="female", text="Hello", en=False):
     url = 'https://nls-gateway.cn-shanghai.aliyuncs.com/stream/v1/tts?spm=a2c4g.11186623.2.34.76315275VkLfUR'
     token = getToken()
     if male == "female":
-        role = "aiya"
+        if en :
+            role = "emily"
+        else:
+            role = "aiya"
+    elif en :
+        role = "eric"
     else:
         role = "aida"
 
@@ -49,4 +54,4 @@ def GetTTS(male="female", text="Hello"):
         return r.content
 
 if __name__ == "__main__":
-    print GetTTS()
+    print getTTS()
